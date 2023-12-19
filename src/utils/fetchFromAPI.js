@@ -1,8 +1,8 @@
 import axios from "axios"
 
-const axios = require('axios');
+// const axios = require('axios');
 
-const BASE_URL = 'https://youtube-v31.p.rapidapi.com/captions';
+const BASE_URL = 'https://youtube-v31.p.rapidapi.com';
 
 const options = {
   params: {
@@ -15,14 +15,7 @@ const options = {
   }
 };
 
-try {
-	const response = await axios.request(options);
-	console.log(response.data);
-} catch (error) {
-	console.error(error);
-}   
-
-export const fetchFromApi = async(url) => {
-    await axios.get("${BASE_URL}/${url}")
-
+export const fetchFromAPI = async(url) => {
+    const [data] = await axios.get("${BASE_URL}/${url}")
+    return data
 }
